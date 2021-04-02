@@ -3,13 +3,14 @@ package BridgeLabz.LinkedList;
 import Bridgelabz.LinkedList.INode;
 import Bridgelabz.LinkedList.MyLinkedList;
 import Bridgelabz.LinkedList.MyNode;
+import Bridgelabz.LinkedList.OredredLinkedList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MyLinkedListTest {
 
     @Test
-    public void given3Nodes_AddThemToTheLinkedList_AndCheckThatTheyAreAddedInCorrectOrder(){
+    public void given3Nodes_AppendThemToTheLinkedList_AndCheckThatTheyAreAddedInCorrectOrder(){
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         MyNode<Integer> firstNode = new MyNode<>();
         MyNode<Integer> secondNode = new MyNode<>();
@@ -28,7 +29,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    public void given2Nodes_AddThirdNodeInTheMiddleOfLinkedList_AndCheckThatTheyAreAddedInCorrectOrder(){
+    public void given2Nodes_AppendThirdNodeInTheMiddleOfLinkedList_AndCheckThatTheyAreAddedInCorrectOrder(){
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         MyNode<Integer> firstNode = new MyNode<>();
         MyNode<Integer> secondNode = new MyNode<>();
@@ -160,6 +161,50 @@ public class MyLinkedListTest {
                 && myLinkedList.getHead().getNext().getKey().equals(30)
                 && myLinkedList.getTail().getKey().equals(70)
                 && myLinkedList.getSize() == 3;
+
+        Assertions.assertTrue(testVariable);
+    }
+
+    @Test
+    public void given3Nodes_AddThemToTheLinkedList_AndCheckThatTheyAreAddedInCorrectOrder(){
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        MyNode<Integer> firstNode = new MyNode<>();
+        MyNode<Integer> secondNode = new MyNode<>();
+        MyNode<Integer> thirdNode = new MyNode<>();
+        firstNode.setKey(56);
+        secondNode.setKey(30);
+        thirdNode.setKey(70);
+        myLinkedList.add(firstNode);
+        myLinkedList.add(secondNode);
+        myLinkedList.add(thirdNode);
+
+        boolean testVariable = myLinkedList.getHead().getKey().equals(70)
+                && myLinkedList.getHead().getNext().getKey().equals(30)
+                && myLinkedList.getTail().getKey().equals(56);
+        Assertions.assertTrue(testVariable);
+    }
+
+    @Test
+    public void given4NodesForOrderedLinkedList_AddAllNodes_AndCheckIfTheyAreAddedInIncreasingOrder(){
+        MyLinkedList<Integer> myOrderedLinkedList = new OredredLinkedList<>();
+        INode<Integer> firstNode = new MyNode<>();
+        INode<Integer> secondNode = new MyNode<>();
+        INode<Integer> thirdNode = new MyNode<>();
+        INode<Integer> fourthNode = new MyNode<>();
+        firstNode.setKey(56);
+        secondNode.setKey(30);
+        thirdNode.setKey(40);
+        fourthNode.setKey(70);
+
+        myOrderedLinkedList.add(firstNode);
+        myOrderedLinkedList.add(secondNode);
+        myOrderedLinkedList.add(fourthNode);
+        myOrderedLinkedList.add(thirdNode);
+
+        boolean testVariable = myOrderedLinkedList.getHead().getKey().equals(30)
+                && myOrderedLinkedList.getHead().getNext().getKey().equals(40)
+                && myOrderedLinkedList.getHead().getNext().getNext().getKey().equals(56)
+                && myOrderedLinkedList.getTail().getKey().equals(70);
 
         Assertions.assertTrue(testVariable);
     }
