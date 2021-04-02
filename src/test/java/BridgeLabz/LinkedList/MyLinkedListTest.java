@@ -65,7 +65,6 @@ public class MyLinkedListTest {
             Assertions.assertTrue(testVariable);
         }
 
-<<<<<<< HEAD
         @Test
         public void given3Nodes_RemoveTailNodeOfLinkedList_AndCheckThatListIsInCorrectOrder(){
             MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
@@ -79,7 +78,7 @@ public class MyLinkedListTest {
             myLinkedList.append(secondNode);
             myLinkedList.append(thirdNode);
             myLinkedList.popTail();
-=======
+
     @Test
     public void given3Nodes_RemoveTailNodeOfLinkedList_AndCheckThatListIsInCorrectOrder() {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
@@ -126,7 +125,6 @@ public class MyLinkedListTest {
         Assertions.assertTrue(testVariable);
     }
 
->>>>>>> UC7
 
             boolean testVariable = myLinkedList.getHead().getData().equals(56)
                     && myLinkedList.getHead().getNext().getData().equals(30);
