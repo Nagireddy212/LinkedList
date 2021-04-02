@@ -46,6 +46,10 @@ public class MyLinkedList<T> {
     }
 
     public void printList(){
+        if(this.head == null){
+            System.out.println("List is Empty right Now.");
+            return;
+        }
         INode<T> currentNode = this.head;
         System.out.print("Head->  ");
         while(currentNode.getNext() != null){
@@ -113,5 +117,16 @@ public class MyLinkedList<T> {
             currentListSize++;
         }
         return currentListSize;
+    }
+
+    public void add(INode<T> nodeToAddAtStart) {
+        if (this.head == null){
+            this.tail = nodeToAddAtStart;
+        }
+        if (this.head != null) {
+            INode<T> oldFirstNode = this.head;
+            nodeToAddAtStart.setNext(oldFirstNode);
+        }
+        this.head = nodeToAddAtStart;
     }
 }

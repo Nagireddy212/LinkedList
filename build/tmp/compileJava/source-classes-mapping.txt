@@ -4,3 +4,7 @@ Bridgelabz/LinkedList/MyLinkedList.java
  Bridgelabz.LinkedList.MyLinkedList
 Bridgelabz/LinkedList/MyNode.java
  Bridgelabz.LinkedList.MyNode
+Bridgelabz/LinkedList/OrderedLinkedList.java
+ Bridgelabz.LinkedList.OrderedLinkedList
+Bridgelabz/LinkedList/StackAsLinkedList.java
+ Bridgelabz.LinkedList.StackAsLinkedList
