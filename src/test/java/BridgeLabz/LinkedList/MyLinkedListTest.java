@@ -163,4 +163,4 @@ public class MyLinkedListTest {
 
         Assertions.assertTrue(testVariable);
     }
-}
+    }
