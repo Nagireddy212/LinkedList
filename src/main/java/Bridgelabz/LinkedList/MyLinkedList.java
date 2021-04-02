@@ -37,7 +37,7 @@ public class MyLinkedList<T> {
 
     public void insert(INode<T> nodeToInsertInBetweenList , T previousNodeData) {
         INode<T> currentNode = this.head;
-        while(!currentNode.getData().equals(previousNodeData)){
+        while(!currentNode.getKey().equals(previousNodeData)){
             currentNode = currentNode.getNext();
         }
         INode<T> nodeAfterInsertedNode = currentNode.getNext();
@@ -49,10 +49,10 @@ public class MyLinkedList<T> {
         INode<T> currentNode = this.head;
         System.out.print("Head->  ");
         while(currentNode.getNext() != null){
-            System.out.print(currentNode.getData()+"->");
+            System.out.print(currentNode.getKey()+"->");
             currentNode = currentNode.getNext();
         }
-        System.out.print(currentNode.getData());
+        System.out.print(currentNode.getKey());
         System.out.println("  <-Tail");
     }
 
@@ -69,13 +69,49 @@ public class MyLinkedList<T> {
         this.tail = newTailNode;
     }
 
-    public int searchNodeByData(T searchData) {
+    public int searchNodeByKey(T searchKey) {
         INode<T> nodeToSearch = this.head;
         int positionInLinkedList = 0;
-        while(!nodeToSearch.getData().equals(searchData)){
+        while(!nodeToSearch.getKey().equals(searchKey)){
             nodeToSearch = nodeToSearch.getNext();
             positionInLinkedList++;
         }
         return positionInLinkedList;
+    }
+
+    public void deleteNodeByKey(T KeyToDelete) {
+        INode<T> previousNode = null;
+        INode<T> currentNode = this.head;
+
+        if(currentNode.getKey()==KeyToDelete){
+            currentNode = currentNode.getNext();
+            this.head=currentNode;
+            return;
+        }
+        while(currentNode.getKey()!=KeyToDelete){
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        if (currentNode.getNext()==null){
+            previousNode.setNext(null);
+            return;
+        }
+        previousNode.setNext(currentNode.getNext());
+    }
+
+    public int getSize() {
+        int currentListSize = 0;
+        INode<T> tempNode = null;
+        if(this.head == null){
+            return currentListSize;
+        }else{
+            currentListSize++;
+            tempNode = this.head;
+        }
+        while(tempNode.getNext()!=null){
+            tempNode = tempNode.getNext();
+            currentListSize++;
+        }
+        return currentListSize;
     }
 }

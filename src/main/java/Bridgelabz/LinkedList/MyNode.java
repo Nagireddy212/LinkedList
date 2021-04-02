@@ -2,22 +2,23 @@ package Bridgelabz.LinkedList;
 
 public class MyNode<K> implements INode<K> {
 
-    private K data;
+
+    private K key;
     private INode nextNode;
 
     public MyNode() {
-        this.data = null;
+        this.key = null;
         this.nextNode = null;
     }
 
     @Override
-    public K getData() {
-        return this.data;
+    public K getKey() {
+        return this.key;
     }
 
     @Override
-    public void setData(K data) {
-        this.data = data;
+    public void setKey(K key) {
+        this.key = key;
     }
 
     @Override
