@@ -59,4 +59,13 @@ public class MyLinkedList<T> {
     public void popHead() {
         this.head = this.head.getNext();
     }
+
+    public void popTail() {
+        INode newTailNode = this.head;
+        while(!newTailNode.getNext().equals(this.tail)){
+            newTailNode = newTailNode.getNext();
+        }
+        newTailNode.setNext(null);
+        newTailNode = this.tail;
+    }
 }
