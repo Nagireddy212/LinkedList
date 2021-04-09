@@ -2,7 +2,6 @@ package Bridgelabz.LinkedList;
 
 
 public class OrderedLinkedList<T> extends MyLinkedList<T>{
-
     @Override
     public void add(INode<T> nodeToAddInOrder) {
         INode<T> previousNode = this.getHead();

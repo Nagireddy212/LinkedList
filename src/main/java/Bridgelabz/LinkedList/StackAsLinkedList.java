@@ -22,4 +22,5 @@ public class StackAsLinkedList<K> extends MyLinkedList<K> {
         this.setHead(newHeadNode);
         return nodeToPop;
     }
+
 }

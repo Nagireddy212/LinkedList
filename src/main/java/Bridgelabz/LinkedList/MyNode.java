@@ -19,7 +19,6 @@ public class MyNode<K extends Comparable<K>> implements INode<K>{
     public void setKey(K key) {
         this.key = key;
     }
-
     @Override
     public INode<K> getNext() {
         return this.nextNode;

@@ -8,7 +8,6 @@ public class MyLinkedList<T> {
         this.head = null;
         this.tail = null;
     }
-
     public INode<T> getHead() {
         return head;
     }
@@ -129,5 +128,9 @@ public class MyLinkedList<T> {
             nodeToAddAtStart.setNext(oldFirstNode);
         }
         this.head = nodeToAddAtStart;
+    }
+
+    public boolean isEmpty() {
+        return this.getHead() == null;
     }
 }
