@@ -1,11 +1,9 @@
 package Bridgelabz.LinkedList;
 
-public interface INode<K> extends Comparable<K> {
+public interface INode<K> extends Comparable<INode<K>> {
     K getKey();
     void setKey(K key);
 
-    INode getNext();
-    void setNext(INode next);
-
-    int compareTo(INode<K> currentNode);
+    INode<K> getNext();
+    void setNext(INode<K> next);
 }
