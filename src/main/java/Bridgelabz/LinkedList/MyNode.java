@@ -2,9 +2,8 @@ package Bridgelabz.LinkedList;
 
 
 public class MyNode<K extends Comparable<K>> implements INode<K>{
-
     private K key;
-    private INode nextNode;
+    private INode<K> nextNode;
 
     public MyNode() {
         this.key = null;
@@ -22,28 +21,17 @@ public class MyNode<K extends Comparable<K>> implements INode<K>{
     }
 
     @Override
-    public INode getNext() {
+    public INode<K> getNext() {
         return this.nextNode;
     }
 
     @Override
-    public void setNext(INode passedNode) {
+    public void setNext(INode<K> passedNode) {
         this.nextNode = passedNode;
     }
 
     @Override
-    public int compareTo(INode<K> currentNode) {
-        if (this.getKey().equals(null) || currentNode.getKey().equals(null)){
-            return 0;
-        }
-        return this.getKey().compareTo(currentNode.getKey());
-    }
-
-    @Override
-    public int compareTo(K key) {
-        if (this.key == null || key == null){
-            return 0;
-        }
-        return this.key.compareTo(key);
+    public int compareTo(INode<K> nodeToCompare) {
+        return this.key.compareTo(nodeToCompare.getKey());
     }
 }
