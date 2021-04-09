@@ -123,11 +123,6 @@ public class MyLinkedListTest {
         myLinkedList.append(secondNode);
         myLinkedList.append(thirdNode);
         myLinkedList.insert(nodeToInsertInBetween,30);
-        /*boolean testVariable = myLinkedList.searchNodeByData(56) == 0
-                && myLinkedList.searchNodeByData(30) == 1
-                && myLinkedList.searchNodeByData(40) == 2
-                && myLinkedList.searchNodeByData(70) == 3;
-        */
         boolean testVariable2 = myLinkedList.getHead().getKey().equals(56)
                 && myLinkedList.getHead().getNext().getKey().equals(30)
                 && myLinkedList.getHead().getNext().getNext().getKey().equals(40)
@@ -226,6 +221,35 @@ public class MyLinkedListTest {
                 && myLinkedListStack.getHead().getNext().getKey().equals(70)
                 && myLinkedListStack.getHead().getNext().getNext().getKey().equals(30)
                 && myLinkedListStack.getHead().getNext().getNext().getNext().getKey().equals(56);
+
+        Assertions.assertTrue(testVariable);
+    }
+
+    @Test
+    public void given3ValuesInLinkedListImplementedAsStack_PeakAndPopEachValue_AndCheckEachOperation(){
+        StackAsLinkedList<Integer> myLinkedListStack = new StackAsLinkedList<Integer>();
+        INode<Integer> firstNode = new MyNode<>();
+        INode<Integer> secondNode = new MyNode<>();
+        INode<Integer> thirdNode = new MyNode<>();
+        firstNode.setKey(70);
+        secondNode.setKey(30);
+        thirdNode.setKey(56);
+
+        myLinkedListStack.push(firstNode);
+        myLinkedListStack.push(secondNode);
+        myLinkedListStack.push(thirdNode);
+
+        boolean peakFirstValueTopOfStack = myLinkedListStack.peak() == 56;
+        boolean popFirstValueTopOfStack = myLinkedListStack.pop().getKey() == 56;
+        boolean peakSecondValueTopOfStack = myLinkedListStack.peak() == 30;
+        boolean popSecondValueTopOfStack = myLinkedListStack.pop().getKey() == 30;
+        boolean peakThirdValueTopOfStack = myLinkedListStack.peak() == 70;
+        boolean popThirdValueTopOfStack = myLinkedListStack.pop().getKey() == 70;
+        boolean popEmptyTopOfStack = myLinkedListStack.getHead() == null;
+
+        boolean testVariable = peakFirstValueTopOfStack && peakSecondValueTopOfStack && peakThirdValueTopOfStack
+                && popFirstValueTopOfStack && popSecondValueTopOfStack && popThirdValueTopOfStack
+                && popEmptyTopOfStack;
 
         Assertions.assertTrue(testVariable);
     }
